@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/thiagoo088/hub-de-leitura-test-UI#readme",
   "dependencies": {
+    "@faker-js/faker": "^10.6.0",
     "cypress": "^16.1.1"
   }
 }
