@@ -34,4 +34,17 @@ describe('Funcionalidade: cadastro no hub de leitura', () => {
         cy.url({ timeout: 10000 }).should('include', 'dashboard.html')
     });
 
+    it('deve preencher cadastro com sucesso - usando comando customizado', () => {
+        let email = `teste${Date.now()}@teste.com`
+        let nome = faker.person.fullName({ sex: 'male'})
+         cy.preencherCadastro(
+            nome, 
+            email,
+            '1198765432165',
+            'Teste@123',
+            'Teste@123',
+        )
+        cy.url({ timeout: 10000 }).should('include', 'dashboard.html')
+    });
+
 });
