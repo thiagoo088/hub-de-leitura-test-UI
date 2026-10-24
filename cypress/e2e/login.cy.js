@@ -11,7 +11,7 @@ describe('Funcionalidade: Login', () => {
         cy.get('#email').type('usuario@teste.com')
         cy.get('#password').type('user123')
         cy.get('#login-btn').click()
-        cy.url({ timeout: 10000 }).should('include', 'dashboard')
+        cy.url().should('include', 'dashboard')
     });
 
     it('Deve fazer login com sucesso - usando comando customizado', () => {

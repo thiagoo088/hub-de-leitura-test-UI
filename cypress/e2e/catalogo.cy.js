@@ -8,12 +8,12 @@ describe('Funcionalidade: Catàlogo de livros', () => {
 
     it('Deve clicar no botão Adicionar à cesta', () => {
         cy.get(':nth-child(1) > .card > .card-body > .mt-auto > .d-grid > .btn-primary').click()
-        cy.get('#cart-count', { timeout: 10000 }).should('contain', 1)
+        cy.get('#cart-count').should('contain', 1)
         cy.contains('1984').should('exist')
     });
 
     it('deve clicar em todos os botões adicionar à cesta', () => {
-        cy.get('.btn-primary', { timeout: 10000 }).click({ multiple: true })
+        cy.get('.btn-primary').click({ multiple: true })
         cy.contains('1984').should('exist')
         cy.contains('A Arte da Guerra').should('exist')
         cy.contains('A Divina Comédia').should('exist')
@@ -30,24 +30,24 @@ describe('Funcionalidade: Catàlogo de livros', () => {
 
 
     it('deve clicar no primeiro botão adicionar à cesta', () => {
-        cy.get('.btn-primary', { timeout: 10000 }).first().click()
+        cy.get('.btn-primary').first().click()
         cy.contains('1984').should('exist')
     });
 
     it('deve clicar no ultimo botão adicionar à cesta', () => {
-        cy.get('.btn-primary', { timeout: 10000 }).last().click()
+        cy.get('.btn-primary').last().click()
         cy.contains('O Alquimista').should('exist')
     });
 
     it('deve clicar no terceiro botão adicionar à cesta', () => {
-        cy.get('.btn-primary', { timeout: 10000 }).eq(2).click()
+        cy.get('.btn-primary').eq(2).click()
         cy.contains('A Divina Comédia').should('exist')
     });
 
     it('deve clicar no nome do livro e direcionar para a tela do livro', () => {
-        cy.contains('A Metamorfose', { timeout: 10000 }).click()
-        cy.url({timeout: 10000}).should('include', 'book-details')
-        cy.get('#add-to-cart-btn', {timeout: 10000}).click()
+        cy.contains('A Metamorfose').click()
+        cy.url().should('include', 'book-details')
+        cy.get('#add-to-cart-btn').click()
         cy.get('#alert-container').should('contain', 'Livro adicionado à cesta com sucesso!')
     });
 
