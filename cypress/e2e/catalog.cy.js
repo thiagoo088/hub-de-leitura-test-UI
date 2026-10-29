@@ -6,6 +6,10 @@ describe('Funcionalidade: Catàlogo de livros', () => {
         cy.visit("catalog.html")
     });
 
+    afterEach(() => {
+        cy.screenshot()
+    });
+
     it('deve clicar em todos os botões adicionar à cesta', () => {
         cy.get('.btn-primary', { timeout: 40000 }).click({ multiple: true })
         cy.contains('1984').should('exist')

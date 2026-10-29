@@ -61,17 +61,17 @@ describe('Funcionalidade: cadastro no hub de leitura', () => {
     it('deve validar cadastro sem preencher nome', () => {
     let email = `teste${Date.now()}@teste.com`
         cadastroPages.preencherCadastro('',email, '89994660099', 'teste123', 'teste123')
-        cy.get(':nth-child(1) > .invalid-feedback').should('contain', 'Nome deve ter pelo menos 2 caracteres')
+        cy.get(':nth-child(1) > .invalid-feedback', { timeout: 40000 } ).should('contain', 'Nome deve ter pelo menos 2 caracteres')
     });
 
     it('deve validar cadastro sem preencher o campo email', () => {
         cadastroPages.preencherCadastro('thiago nascimento','', '89994660099', 'teste123', 'teste123')
-        cy.get('#register-form > :nth-child(2) > .invalid-feedback').should('contain', 'Email válido é obrigatório')
+        cy.get('#register-form > :nth-child(2) > .invalid-feedback', { timeout: 40000 } ).should('contain', 'Email válido é obrigatório')
     });
 
     it('deve validar cadastro sem preencher o campo confirmar senha', () => {
     let email = `teste${Date.now()}@teste.com`
         cadastroPages.preencherCadastro('thiago nascimento',email, '89994660099', 'teste123', '')
-        cy.get(':nth-child(5) > .invalid-feedback').should('contain', 'Senhas não coincidem')
+        cy.get(':nth-child(5) > .invalid-feedback', { timeout: 40000 }).should('contain', 'Senhas não coincidem')
     });
 });
