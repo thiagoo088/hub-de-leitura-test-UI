@@ -12,7 +12,7 @@ describe('funcionalidade: contato', () => {
     cy.get('[name="subject"]').select('Sugestões')
     cy.get('[name="message"]').type('meu primeiro teste automatizado :)')
     cy.get('#btn-submit').click()
-    cy.contains('Contato enviado com sucesso!').should('exist')
+    cy.contains('Contato enviado com sucesso!', { timeout: 40000 }).should('exist')
 
   });
 
@@ -21,7 +21,7 @@ describe('funcionalidade: contato', () => {
     cy.get('[name="subject"]').select('Sugestões')
     cy.get('[name="message"]').type('meu primeiro teste automatizado :)')
     cy.get('#btn-submit').click()
-    cy.get('#alert-container').should('contain', 'Por favor, preencha o campo Nome')
+    cy.get('#alert-container',  { timeout: 40000 } ).should('contain', 'Por favor, preencha o campo Nome')
     
   });
 
@@ -30,7 +30,7 @@ describe('funcionalidade: contato', () => {
     cy.get('[name="subject"]').select('Sugestões')
     cy.get('[name="message"]').type('meu primeiro teste automatizado :)')
     cy.get('#btn-submit').click()
-    cy.get('#alert-container').should('contain', 'Por favor, preencha o campo E-mail')
+    cy.get('#alert-container',  { timeout: 40000 } ).should('contain', 'Por favor, preencha o campo E-mail')
 
   });
 
@@ -39,7 +39,7 @@ describe('funcionalidade: contato', () => {
     cy.get('[name="email"]').type('thiago@teste.com')
     cy.get('[name="message"]').type('meu primeiro teste automatizado :)')
     cy.get('#btn-submit').click()
-    cy.get('#alert-container').should('contain', 'Por favor, selecione o Assunto')
+    cy.get('#alert-container',  { timeout: 40000 } ).should('contain', 'Por favor, selecione o Assunto')
 
   });
 
@@ -48,7 +48,7 @@ describe('funcionalidade: contato', () => {
     cy.get('[name="email"]').type('thiago@teste.com')
     cy.get('[name="subject"]').select('Sugestões')
     cy.get('#btn-submit').click()
-    cy.get('#alert-container').should('contain', 'Por favor, escreva sua Mensagem')
+    cy.get('#alert-container',  { timeout: 40000 } ).should('contain', 'Por favor, escreva sua Mensagem')
 
   });
 

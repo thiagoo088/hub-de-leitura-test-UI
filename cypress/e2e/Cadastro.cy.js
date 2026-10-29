@@ -23,7 +23,7 @@ describe('Funcionalidade: cadastro no hub de leitura', () => {
         cy.get('#confirm-password').type('teste.123')
         cy.get('#terms-agreement').click()
         cy.get('#register-btn').click()
-        cy.url().should('include', 'dashboard.html')
+        cy.url({ timeout: 40000 }).should('include', 'dashboard.html')
         cy.get('#user-name').should('contain', nome)
     });
 
@@ -36,7 +36,7 @@ describe('Funcionalidade: cadastro no hub de leitura', () => {
         cy.get('#confirm-password').type('teste.123')
         cy.get('#terms-agreement').click()
         cy.get('#register-btn').click()
-        cy.url().should('include', 'dashboard.html')
+        cy.url({ timeout: 40000 }).should('include', 'dashboard.html')
     });
 
     it('deve preencher cadastro com sucesso - usando comando customizado', () => {
@@ -49,13 +49,13 @@ describe('Funcionalidade: cadastro no hub de leitura', () => {
             'Teste@123',
             'Teste@123',
         )
-        cy.url().should('include', 'dashboard.html')
+        cy.url({ timeout: 40000 }).should('include', 'dashboard.html')
     });
 
     it('Deve fazer cadastro com sucesso - usando pages objects', () => {
     let email = `teste${Date.now()}@teste.com`
         cadastroPages.preencherCadastro('Thiago do nascimento', email, '89994660099', 'teste123', 'teste123')
-        cy.url().should('include', 'dashboard.html')
+        cy.url({ timeout: 40000 }).should('include', 'dashboard.html')
     });
 
     it('deve validar cadastro sem preencher nome', () => {

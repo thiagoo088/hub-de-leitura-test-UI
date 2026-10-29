@@ -1,14 +1,14 @@
 [
     {
-        "livro": "1984",
+        "livros": "1984",
         "categoria": "Ficção"
     },
     {
-        "livro": "Dom Quixote",
+        "livros": "Dom Quixote",
         "categoria": "Romance"
     },
     {
-        "livro": "O Hobbit",
+        "livros": "O Hobbit",
         "categoria": "Aventura"
     }
 ]
